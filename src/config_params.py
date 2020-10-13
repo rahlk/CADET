@@ -1,7 +1,6 @@
 import os 
 import sys
 import subprocess
-import subprocess
 from cadet.Configuration import Config as cfg
 
 class ConfigParams(object):
@@ -36,10 +35,12 @@ class ConfigParams(object):
                
     def set_big_core_status(self, cpu_name, status):
         """This function is used set core status (enable or disable)
-        @input:
+        Parameters
+        ----------
+
              cpu_name: cpu that will be enabled or disabled
         Returns
-    -------
+        -------
         boolean: whether the operation was successful or not  
         """
         if cpu_name!="cpu0":
@@ -67,13 +68,13 @@ class ConfigParams(object):
 
     def set_big_core_freq(self, cpu_name, frequency):
         """This function is used to set core frequency of one or more cores
-        @input:
+        Parameters
+        ----------
+
             frequency: clockspeed at what the cpu will be set 
             cpu_name: cpu number which will be set
         Returns
-    -------
-            Returns
-    -------
+        -------
             boolean: status of operation
         """
         #print ("cpu frequency")
@@ -100,10 +101,12 @@ class ConfigParams(object):
    
     def set_gpu_freq(self, frequency):
         """This function is used to change gpu clockspeeds
-        @input:
+        Parameters
+        ----------
+
            frequency: the clockspeed at which the gpu will be set
         Returns
-    -------
+        -------
             boolean: status of operation
         """
         if frequency is not None:
@@ -131,10 +134,12 @@ class ConfigParams(object):
       
     def set_emc_freq(self, frequency):
         """This function is used to change emmc clockspeeds
-        @input:
+        Parameters
+        ----------
+
             frequency: the clockspeed at which the emmc will be set
         Returns
-    -------
+        -------
             boolean: status of operation
         """
         #print ("emc frequency")

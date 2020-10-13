@@ -126,7 +126,7 @@ class GenerateParams(object):
     def get_big_core_freqs(self):
         """This function is used to get available frequencies for all the big cores
         Returns
-    -------
+        -------
             freq: list of available frequencies for big cores"""
         try:
             filename = cfg.systems[self.sys_name]["cpu"]["frequency"]["available"]
@@ -140,7 +140,7 @@ class GenerateParams(object):
     def get_gpu_freqs(self):
         """This function is used to get available gpu frequencies
         Returns
-    -------
+        -------
             freq: list of available frequencies for gpus"""
         try:
             filename = cfg.systems[self.sys_name]["gpu"]["frequency"]["available"]
@@ -154,7 +154,7 @@ class GenerateParams(object):
     def get_emc_freqs(self):
         """This function is used to get available emmc frequencies
         Returns
-    -------
+        -------
             freq: list of available frequencies for emmc controller"""
         try:
             filename = cfg.systems[self.sys_name]["emc"]["frequency"]["available"]

@@ -1,6 +1,6 @@
 import sys
 import pandas as pd 
-from Configuration import Config as cfg
+from cadet.utils.config_parser import Config
 from cadet.causal_model import CausalModel
 from cadet.generate_params import GenerateParams
 from ananke.graphs import ADMG
@@ -49,8 +49,10 @@ def run_cauper_loop(CM, df, tabu_edges,
     G = ADMG(columns, di_edges = di_edges, bi_edges = bi_edges)
     
 if __name__=="__main__":
-    NUM_PATHS =  5
-    query = 0.8
+    cfg = Config("./etc/config.yml")
+    cfg = cfg.load_config()
+    NUM_PATHS =  cfg.num_paths
+    query = cfg.query
     options = config_option_parser()
     # Initialization
     init_dir = cfg.init_dir 
