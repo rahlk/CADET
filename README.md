@@ -1,6 +1,6 @@
-# CAUPER
-This paper proposes CAUPER(short for Causal Performance Debugging) that enables users toidentify, explain, and 
-fix the root cause of non-functional faults early and in a principled fashion. CAUPER builds a causal model by 
+# CADET
+This paper proposes CADET(short for Causal Performance Debugging) that enables users toidentify, explain, and 
+fix the root cause of non-functional faults early and in a principled fashion. CADET builds a causal model by 
 observing the performance of the system under different configurations. Then, it uses casual path extraction 
 followed by counterfactual reasoning over the causal model to:  (a) identify the root causes of non-functional faults, 
 (b) estimate the effects of various configurable parameters on the performance objective(s), and (c) prescribe candidate 
@@ -63,4 +63,4 @@ command: python Runcausal_model.py  -o inference_time -o total_energy_consumptio
 
 
 ## 📘&nbsp; License
-CAUPER is released under the under terms of the [MIT License](LICENSE).
+CADET is released under the under terms of the [MIT License](LICENSE).

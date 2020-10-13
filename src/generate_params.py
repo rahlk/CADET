@@ -79,7 +79,7 @@ class GenerateParams(object):
             ConfigParams(cur_conf, self.sys_name, self.big_cores, 
                          self.columns)
             for iteration in range(self.NUM_TEST):
-                    os.system('perf stat -e cycles,instructions,context-switches,cache-references,cache-misses,L1-dcache-loads,L1-dcache-load-misses,L1-dcache-stores,migrations,minor-faults,major-faults,branch-loads,branch-load-misses,emulation-faults,alignment-faults,branch-misses,raw_syscalls:sys_enter,raw_syscalls:sys_exit,block:*,sched:*,irq:*,ext4:* -o cur python3 /home/nvidia/CAUPER/cadet/ComputePerformance.py')
+                    os.system('perf stat -e cycles,instructions,context-switches,cache-references,cache-misses,L1-dcache-loads,L1-dcache-load-misses,L1-dcache-stores,migrations,minor-faults,major-faults,branch-loads,branch-load-misses,emulation-faults,alignment-faults,branch-misses,raw_syscalls:sys_enter,raw_syscalls:sys_exit,block:*,sched:*,irq:*,ext4:* -o cur python3 /home/nvidia/CADET/cadet/compute_performance.py')
                     perf_output = self.perf_obj.parse_perf()    
                     with open ('measurement','r') as f:
                         data = json.load(f)

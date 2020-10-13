@@ -32,10 +32,10 @@ def config_option_parser():
     (options, args)=parser.parse_args()
     return options
 
-def run_cauper_loop(CM, df, tabu_edges, 
+def run_cadet_loop(CM, df, tabu_edges, 
                    columns, options, NUM_PATHS):
     """
-    This function is used to run cauper in a loop
+    This function is used to run cadet in a loop
     """
     # NOTEARS causal model hyperparmas
     _, notears_edges = CM.learn_notears(df, tabu_edges, 0.75)
@@ -76,7 +76,7 @@ if __name__=="__main__":
     # edge constraints
     tabu_edges = CM.get_tabu_edges(columns, conf_opt, objectives)
     # initialize
-    run_cauper_loop(CM, df, tabu_edges, 
+    run_cadet_loop(CM, df, tabu_edges, 
                     columns, options, NUM_PATHS)
     # Get Bug and update df 
     bug_dir = cfg.bug_dir
@@ -101,7 +101,7 @@ if __name__=="__main__":
                 bug_exists = False
             else: 
                 # run loop
-                run_cauper_loop(CM, df, tabu_edges, 
+                run_cadet_loop(CM, df, tabu_edges, 
                                 columns, options, NUM_PATHS) 
 
         
