@@ -1,18 +1,23 @@
 import sys
 import pandas as pd 
 from Configuration import Config as cfg
-from Src.CausalModel import CausalModel
-from Src.GenerateParams import GenerateParams
+from cadet.causal_model import CausalModel
+from cadet.generate_params import GenerateParams
 from ananke.graphs import ADMG
 from causalnex.structure.notears import from_pandas
 from causalnex.network import BayesianNetwork
 from optparse import OptionParser
 
 def config_option_parser():
-    """This function is used to configure option parser 
-    @returns:
-        options: option parser handle"""
-    usage="""USAGE: %python3 RunCausalModel.py -o [objectives] -d [init_data] -s [software] -k [hardware]
+    """
+    This function is used to configure option parser 
+    Returns
+    -------
+        options: option parser handle
+    """
+    
+    usage = """
+    USAGE: %python3 RunCausalModel.py -o [objectives] -d [init_data] -s [software] -k [hardware]
     """
     parser=OptionParser(usage=usage)
     parser.add_option('-o', '--objective', dest='obj', 
@@ -29,7 +34,9 @@ def config_option_parser():
 
 def run_cauper_loop(CM, df, tabu_edges, 
                    columns, options, NUM_PATHS):
-    """This function is used to run cauper in a loop"""
+    """
+    This function is used to run cauper in a loop
+    """
     # NOTEARS causal model hyperparmas
     _, notears_edges = CM.learn_notears(df, tabu_edges, 0.75)
     # get bayesian etowrk from DAG obtained by NOTEARS

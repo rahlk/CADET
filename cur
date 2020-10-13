@@ -1,7 +1,7 @@
 # started on Wed Sep 16 00:23:59 2020
 
 
- Performance counter stats for 'python3 /home/nvidia/CAUPER/Src/ComputePerformance.py':
+ Performance counter stats for 'python3 /home/nvidia/CAUPER/cadet/ComputePerformance.py':
 
     12,343,612,243      cycles                                                        (72.73%)
      3,380,855,047      instructions              #    0.27  insn per cycle           (72.71%)
