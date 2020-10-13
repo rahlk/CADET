@@ -37,12 +37,10 @@ while root.name != "src":
 if root not in sys.path:
     sys.path.append(str(root))
 
-__author__ = "Rahul Krishna and Shahriar"
+
 __copyright__ = "Copyright 2020"
 __license__ = "GPL"
 __version__ = "1.0"
-__maintainer__ = "Rahul Krishna"
-__email__ = "i.m.ralk@gmail.com"
 
 
 class Config:

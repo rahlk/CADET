@@ -23,17 +23,17 @@ repairs to the relevant configuration options to fix the non-functional fault.
 To run experiments on NVIDIA Jetson TX1 or TX2 Xavier devices please use the 
 following command to launch a flask on localhost:
 ```python
-command: python RunService.py softwaresystem
+command: python src/utils/run_service.py softwaresystem
 ```
 For example to initialize a flask app with image recogntion softwrae system please use:
 ```python
-command: python RunService.py Image
+command: python src/utils/run_service.py Image
 ```
 
 Once the flask app is running and modelserver is ready then please use the following command
 to collect performance measurments for different configurations: 
 ```python
-command: python RunParams.py softwaresystem
+command: python src/utils/run_params.py softwaresystem
 ```
 
 To run causal models for a single-objective bug please run the following:
