@@ -26,18 +26,18 @@ Once you open the Jetson TX1/TX2 box please perform the following steps to load 
 4. Power on the Jetson TX1/TX2 board using the supplied AC Adapter and press the Power button. 
 
 This will bring up a command terminal and prompt for password.  
---password for user nvidia: nvidia  
---Password for user ubuntu: ubuntu 
+     Password for user nvidia: nvidia  
+     Password for user ubuntu: ubuntu 
 
 Then execute the following commands on you terminal.
 
-1. command: cd NVIDIA-INSTALLER  
+1. cd NVIDIA-INSTALLER
 
-2. command: sudo ./installer.sh  
+2. sudo ./installer.sh
 This will install some dependencies to load GUI and once finished will ask the system to reboot.
 Use: 
 
-3. command: sudo reboot   
+3. sudo reboot   
 Now you will have a desktop gui which will make your navigation easier. 
 
 **Jetpack 3.3 Installation:**
@@ -50,17 +50,21 @@ The instructions for flashing os and installing necessary software are listed be
 1. Download Jetpack 3.3 Installer from https://developer.nvidia.com/embedded/downloads#?search=jetpack%203.3 (You might need to create your own nvidia developer account to download the binary)
 
 2. Extract the installer and copy it to a new directory using
--- command: mkdir TX1/TX2 (whichever you are using)   
--- command: cp JetPack-L4T-3.3-linux-x64_b39.run ~/TX1 or TX2  
+     
+       mkdir TX1/TX2 (whichever you are using)   
+       cp JetPack-L4T-3.3-linux-x64_b39.run ~/TX1 (or TX2)  
 
 3. Change the permission to make it executable.  
--- command: chmod +x JetPack-L4T-3.3-linux-x64_b39.run ~/TX1 or TX2  
+     
+       chmod +x JetPack-L4T-3.3-linux-x64_b39.run ~/TX1 (or TX2)  
 
 4. Install ssh-askpass. This is very important as once the flashing is done the jetpack will ask you for remote system (Jetson TX1/TX2) ip, username and password. Without this step it will get stuck and will not get installed correctly.  
--- command: sudo apt-get install ssh-askpass-gnome ssh-askpass  
+     
+       sudo apt-get install ssh-askpass-gnome ssh-askpass  
 
 5. Run the installer  
--- command: ./JetPack-L4T-3.3-linux-x64_b39.run (Do not use sudo)  
+     
+       ./JetPack-L4T-3.3-linux-x64_b39.run (Do not use sudo)  
 
 This would start installing Jetpack on your host and will show the progress using a Nvidia Component Manager. 
 In the component manager select Full (Flash OS and other necessary software e.g. cuda, cudnn, opencv, tensorRT etc.) installation and select to resolve all dependencies in the component manager gui. It will also prompt you to accept all the software license agreements and make sure you accept them (unless you have discovered patches to choose rebellion). 
@@ -74,48 +78,56 @@ Once the jetpack installation is completed on your host os it will show you some
 5. Please wait for 2 seconds after releasing the reset button and then release the force recovery button.
 
 In order to confirm that the jetson is ready to be flashed using the force recovery mode open a terminal in your host os and use  
--- command: lsusb   
+     
+     lsusb   
 
 You should see a list of usbs and one of them should be NVIDIA-CORP which will indicate the Jetson is ready to be configured. Then press the enter button on the terminal from which the force recovery mode was initiated on your host os. 
 This would start flashing os and install jetpack 3.3. It would create filesystems on your jetson tx1/tx2. 
 
 Currently, there is an issue with Jetpack 3.3 which is it only flashes the os but does not install all the necessary software. In order to do so, you have to run the Jetpack run file again and this time make sure rather than selecting the full installation you select custom and right click on the target system ans select install. Before, doing so make sure you unplug the developer cable. This would ask you for the jetson tx1/tx2 ip, username and password. In order to get the ip from Jetson TX1/Tx2 use:  
--- command: ifconfig   
+     
+     ifconfig   
 Use the following command to make sure your Jetson TX1/TX2 is reachable from your host.   
--- command: ping jetson_ip_address   
+     
+     ping jetson_ip_address   
 This time it will install all the necessary software. Once the softwares are installed now you may be interested in using tensorflow/caffe/pytorch etc.
 
 Use the following  
--- command: sudo apt-get install python-setuptools (for python 2.7)  
--- command: sudo apt-get install python-pip    
+     
+     sudo apt-get install python-setuptools (for python 2.7)  
+     sudo apt-get install python-pip    
 
 **Tensorflow Installation:**
 
 For Tensorflow:   
--- command: sudo pip install --extra-index-url https://developer.download.nvidia.com/compute/redist/jp33 tensorflow-gpu
+     
+     sudo pip install     extra-index-url https://developer.download.nvidia.com/compute/redist/jp33 tensorflow-gpu
+
 You should be able to open a python interpreter to ensure tensorflow is running. 
 
 **Tensorflow & Keras install for jetson Xavier & Nano devices**
 
--- command: sudo apt-get install python3-venv
+     sudo apt-get install python3-venv
 
--- command: python3 -m venv your_env
+     python3 -m venv your_env
 
--- command: source your_env/bin/activate
+     source your_env/bin/activate
 
--- command: pip3 install Cython pandas
+     pip3 install Cython pandas
 
--- command: sudo apt-get install libhdf5-serial-dev libhdf5-dev
+     sudo apt-get install libhdf5-serial-dev libhdf5-dev
 
--- command: sudo apt-get install libblas3 liblapack3 liblapack-dev libblas-dev
+     sudo apt-get install libblas3 liblapack3 liblapack-dev libblas-dev
 
--- command: sudo apt-get install gfortran
+     sudo apt-get install gfortran
 
--- command: wget https://developer.download.nvidia.com/compute/redist/jp/v42/tensorflow-gpu/tensorflow_gpu-1.13.1+nv19.3-cp36-cp36m-linux_aarch64.whl
+     wget https://developer.download.nvidia.com/compute/redist/jp/v42/tensorflow-gpu/tensorflow_gpu-1.13.1+nv19.3-cp36-cp36m-linux_aarch64.whl
 
--- command: pip3 install tensorflow_gpu-1.13.1+nv19.3-cp36-cp36m-linux_aarch64.whl
+     pip3 install tensorflow_gpu-1.13.1+nv19.3-cp36-cp36m-linux_aarch64.whl
 
--- command: pip3 install keras
+     pip3 install keras
+
+
 
 
 ## Run Instructions
